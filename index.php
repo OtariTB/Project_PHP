@@ -1,3 +1,9 @@
+<?php
+include_once './config/connect.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +14,10 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="navbar">
             <ul>
-                <li>Home</li>
-                <li>Products</li>
-                <li></li>
+                <li><a href="./index.php">Home</a></li>
+                <li><a href="./includes/products.php">Products</a></li>
             </ul>
             <button>cart</button>
         </nav>
