@@ -74,3 +74,80 @@ header {
 .navbar button:hover {
   background-color: #e65c00;
 }
+
+.login-container {
+  margin: 0 auto;
+  background: #003366;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  color: #fff;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h1 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.form-group input {
+  width: 93%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1a73e8;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-button:hover {
+  background: #b34700;
+}
+
+.error-message {
+  color: #d93025;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.form-group.error input {
+  border-color: #d93025;
+}
+
+.form-group.error .error-message {
+  display: block;
+}
