@@ -36,7 +36,6 @@ include_once './config/connect.php';
                     <li><a href="">Ultrawide</a></li>
                     <li><a href="">Budget</a></li>
                     <li><a href="">Deals</a></li>
-                    <li><a href="./index.php">Home</a></li>
                     <li><a href="./includes/products.php">Products</a></li>
                     <li><a href="./includes/login.php"> Log In</a></li>
                     <li><a href="./includes/register.php">Register</a></li>
@@ -95,5 +94,35 @@ include_once './config/connect.php';
             </div>
         </div>
     </section>
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Monitors</h2>
+            <div class="product-grid">
+                <?php
+                $sql = "SELECT * FROM PRODUCTS
+                INNER JOIN resolutions on products.resolution_id = resolutions.id
+                INNER JOIN brand on products.brand_id = brand.brand_id
+                INNER JOIN categories on products.category_id = categories.category_id";
+                $result = mysqli_query($conn, $sql);
+                foreach ($result as $product) {
+                    echo '
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="'.$product['image'].'" alt="'.$product['model'].'">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">'.$product['brandName']. " " ,$product['model'].'</h3>
+                            <p class="product-specs">'. $product['resolution_type'].", ",$product['screen_size'].", ",$product['refresh_rate']."Hz, ",$product['panel'].'</p>
+                            <div class="product-price">$'.$product['price'].'</div>
+                            <a href="product.php?id='.$product['product_id'].'" class="product-btn">View Details</a>
+                            <a href="cart.php?add='.$product['product_id'].'" class="product-btn">Add to Cart</a>
+                        </div>
+                    </div>
+                    ';
+                }
+                ?>
+            </div>
+        </div>
+    </section>            
 </body>
 </html>
