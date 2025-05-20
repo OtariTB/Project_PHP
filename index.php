@@ -43,8 +43,13 @@ include_once './config/connect.php';
                 </ul>
             </div>
         </nav>
-
-        
     </header>
+        <section class="hero">
+        <div class="container">
+            <h1>Elevate Your Visual Experience</h1>
+            <p>Discover our premium collection of monitors for gaming, professional work, and everyday use. Find the perfect display that meets your needs.</p>
+            <a href="products.php" class="btn">Shop Now</a>
+        </div>
+    </section>
 </body>
 </html>
