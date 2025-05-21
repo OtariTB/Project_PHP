@@ -115,8 +115,8 @@ include_once './config/connect.php';
                             <h3 class="product-title">'.$product['brandName']. " " ,$product['model'].'</h3>
                             <p class="product-specs">'. $product['resolution_type'].", ",$product['screen_size'].", ",$product['refresh_rate']."Hz, ",$product['panel'].'</p>
                             <div class="product-price">$'.$product['price'].'</div>
-                            <a href="product.php?id='.$product['product_id'].'" class="product-btn">View Details</a>
-                            <a href="cart.php?add='.$product['product_id'].'" class="product-btn">Add to Cart</a>
+                            <a href="product.php?id='.$product['product_id'].'" class="product-btn"><i class="fa-solid fa-magnifying-glass"></i></a>
+                            <a href="cart.php?add='.$product['product_id'].'" class="product-btn" style = "background-color : var(--light-green);"><i class="fa-solid fa-cart-plus"></i></a>
                         </div>
                     </div>
                     ';
@@ -125,7 +125,7 @@ include_once './config/connect.php';
             </div>
         </div>
     </section>
-        <section class="features">
+    <section class="features">
         <div class="container">
             <h2 class="section-title">Why Us</h2>
             <div class="features-grid">
@@ -146,6 +146,56 @@ include_once './config/connect.php';
                 </div>
             </div>
         </div>
-    </section>            
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="gaming.php">Gaming Monitors</a></li>
+                        <li><a href="professional.php">Professional Monitors</a></li>
+                        <li><a href="ultrawide.php">Ultrawide Monitors</a></li>
+                        <li><a href="budget.php">Budget Monitors</a></li>
+                        <li><a href="deals.php">Special Deals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a href="faq.php">FAQs</a></li>
+                        <li><a href="shipping.php">Shipping Policy</a></li>
+                        <li><a href="returns.php">Returns & Exchanges</a></li>
+                        <li><a href="warranty.php">Warranty Information</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="about.php">Our Story</a></li>
+                        <li><a href="blog.php">Blog</a></li>
+                        <li><a href="careers.php">Careers</a></li>
+                        <li><a href="reviews.php">Customer Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for news and updates.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <?php echo date('Y'); ?> MonitorStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+          
 </body>
 </html>
