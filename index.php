@@ -32,11 +32,10 @@ include_once './config/connect.php';
         <nav class="main-nav">
             <div class="container nav-container">
                 <ul class="nav-links">
-                    <li><a href="">Gaming</a></li>
-                    <li><a href="">Professional</a></li>
-                    <li><a href="">Ultrawide</a></li>
-                    <li><a href="">Budget</a></li>
-                    <li><a href="">Deals</a></li>
+                    <li><a href="includes/products.php?category=Gaming">Gaming</a></li>
+                    <li><a href="includes/products.php?category=Professional">Professional</a></li>
+                    <li><a href="includes/products.php?category=Ultrawide">Ultrawide</a></li>
+                    <li><a href="includes/products.php?category=Budget">Budget</a></li>
                     <li><a href="./includes/products.php">Products</a></li>
                     <li><a href="./includes/login.php"> Log In</a></li>
                     <li><a href="./includes/register.php">Register</a></li>
@@ -103,7 +102,8 @@ include_once './config/connect.php';
                 $sql = "SELECT * FROM PRODUCTS
                 INNER JOIN resolutions on products.resolution_id = resolutions.id
                 INNER JOIN brand on products.brand_id = brand.brand_id
-                INNER JOIN categories on products.category_id = categories.category_id";
+                INNER JOIN categories on products.category_id = categories.category_id
+                WHERE isFeatured = 1";
                 $result = mysqli_query($conn, $sql);
                 foreach ($result as $product) {
                     echo '
@@ -153,11 +153,10 @@ include_once './config/connect.php';
                 <div class="footer-links">
                     <h3>Shop</h3>
                     <ul>
-                        <li><a href="">Gaming Monitors</a></li>
-                        <li><a href="">Professional Monitors</a></li>
-                        <li><a href="">Ultrawide Monitors</a></li>
-                        <li><a href="">Budget Monitors</a></li>
-                        <li><a href="">Special Deals</a></li>
+                        <li><a href="includes/products.php?category=Gaming">Gaming Monitors</a></li>
+                        <li><a href="includes/products.php?category=Professional">Professional Monitors</a></li>
+                        <li><a href="includes/products.php?category=Ultrawide">Ultrawide Monitors</a></li>
+                        <li><a href="includes/products.php?category=Budget">Budget Monitors</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">

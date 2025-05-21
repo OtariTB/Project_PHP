@@ -36,7 +36,6 @@ include_once '../config/connect.php';
                     <li><a href="">Professional</a></li>
                     <li><a href="">Ultrawide</a></li>
                     <li><a href="">Budget</a></li>
-                    <li><a href="">Deals</a></li>
                     <li><a href="./products.php">Products</a></li>
                     <li><a href="./login.php"> Log In</a></li>
                     <li><a href="./register.php">Register</a></li>
@@ -50,6 +49,164 @@ include_once '../config/connect.php';
             <p>Discover the perfect display for your needs</p>
         </div>
     </section>
+    <main class="container">
+        <div class="filter-section">
+        <form method="GET" class="filter-controls" id="filterForm">
+            <select class="filter-select" name="sort" onchange="document.getElementById('filterForm').submit();">
+                <option value="">Sort By</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="newest">Newest First</option>
+                <option value="popular">Most Popular</option>
+            </select>
+            <select class="filter-select" name="screen_size" onchange="document.getElementById('filterForm').submit();">
+                <option value="">Screen Size</option>
+                <option value="24">24 inch</option>
+                <option value="27">27 inch</option>
+                <option value="32">32 inch</option>
+                <option value="34">34+ inch</option>
+            </select>
+            <select class="filter-select" name="resolutions" onchange="document.getElementById('filterForm').submit();">
+                <option value="">Resolution</option>
+                <option value="1920 x 1080 (FHD)">Full HD (1080p)</option>
+                <option value="2560 x 1440 (2K)">2K (1440p)</option>
+                <option value="3840 x 2160 (4K)">4K Ultra HD</option>
+            </select>
+            <select class="filter-select" name="panel" onchange="document.getElementById('filterForm').submit();">
+                <option value="">Panel Type</option>
+                <option value="ips">IPS</option>
+                <option value="va">VA</option>
+                <option value="oled">OLED</option>
+            </select>
+            <select class="filter-select" name="category" onchange="document.getElementById('filterForm').submit();">
+                <option value="">Category</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Professional">Professional</option>
+                <option value="Ultrawide">Ultrawide</option>
+                <option value="Budget">Budget</option>
+            </select>
+        </form>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search monitors...">
+                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    <div class="products-grid">
+    <?php
 
+    $query = "SELECT * FROM PRODUCTS
+            INNER JOIN resolutions on products.resolution_id = resolutions.id
+            INNER JOIN brand on products.brand_id = brand.brand_id
+            INNER JOIN categories on products.category_id = categories.category_id";
+    
+
+    $conditions = array();
+    if(isset($_GET['resolutions']) && !empty($_GET['resolutions'])) {
+        $resolution = mysqli_real_escape_string($conn, $_GET['resolutions']);
+        $conditions[] = "resolution_type = '$resolution'";
+    }
+    if(isset($_GET['screen_size']) && !empty($_GET['screen_size'])) {
+        $screen_size = mysqli_real_escape_string($conn, $_GET['screen_size']);
+        $conditions[] = "screen_size = '$screen_size'";
+    }
+    if(isset($_GET['panel']) && !empty($_GET['panel'])) {
+        $panel = mysqli_real_escape_string($conn, $_GET['panel']);
+        $conditions[] = "panel = '$panel'";
+    }
+    if(isset($_GET['category']) && !empty($_GET['category'])) {
+        $category = mysqli_real_escape_string($conn, $_GET['category']);
+        $conditions[] = "categoryName = '$category'";
+    }
+    if(count($conditions) > 0) {
+        $query .= " WHERE " . implode(" AND ", $conditions);
+    }
+    
+    if(isset($_GET['sort'])) {
+        switch($_GET['sort']) {
+            case 'price-low':
+                $query .= " ORDER BY price ASC";
+                break;
+            case 'price-high':
+                $query .= " ORDER BY price DESC";
+                break;
+            case 'newest':
+                $query .= " ORDER BY product_id DESC";
+                break;
+            case 'popular':
+                $query .= " ORDER BY popularity DESC";
+                break;
+            default:
+                $query .= " ORDER BY product_id DESC";
+        }
+    } else {
+        $query .= " ORDER BY product_id DESC"; 
+    }
+    
+    $result = mysqli_query($conn, $query);
+    
+    if(mysqli_num_rows($result) > 0) {
+        while($product = mysqli_fetch_assoc($result)) {
+            $stockClass = "out-of-stock";
+            $stockText = "Out of Stock";
+            
+            if($product['quantity'] > 10) {
+                $stockClass = "in-stock";
+                $stockText = "In Stock";
+            } elseif($product['quantity'] > 0) {
+                $stockClass = "low-stock";
+                $stockText = "Low Stock";
+            }
+    ?>
+    
+    <div class="product-card">
+        <img src=".<?php echo htmlspecialchars($product['image']); ?>" 
+             alt="<?php echo htmlspecialchars($product['brandName']); ?>" 
+             class="product-img">
+        
+        <div class="product-info">
+            <div class="product-category"><?php echo htmlspecialchars($product['categoryName']); ?></div>
+            <h3 class="product-name"><?php echo htmlspecialchars($product['brandName']) . " " . htmlspecialchars($product['model']); ?></h3>
+            
+            <div class="product-specs">
+                <div class="spec-item">
+                    <span class="spec-icon"><i class="fa-solid fa-chart-bar"></i></span>
+                    <span><?php echo htmlspecialchars($product['screen_size']); ?>-inch, <?php echo htmlspecialchars($product['resolution_type']); ?></span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-icon"><i class="fa-solid fa-gauge"></i></span>
+                    <span><?php echo htmlspecialchars($product['refresh_rate']); ?>Hz</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-icon"><i class="fa-solid fa-image"></i></span>
+                    <span><?php echo htmlspecialchars($product['panel']); ?> Panel</span>
+                </div>
+            </div>
+            
+            <div class="stock-status <?php echo $stockClass; ?>"><?php echo $stockText; ?></div>
+            
+            <div class="product-footer">
+                <div class="price">
+                    <?php if(!empty($product['old_price']) && $product['old_price'] > $product['price']): ?>
+                    <span class="discount">$<?php echo number_format($product['old_price'], 2); ?></span>
+                    <?php endif; ?>
+                    $<?php echo number_format($product['price'], 2); ?>
+                </div>
+                
+                <button class="add-to-cart" 
+                        <?php echo ($product['quantity'] <= 0) ? 'disabled' : ''; ?>
+                        data-product-id="<?php echo $product['id']; ?>">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <?php
+        }
+    } else {
+        echo '<div class="no-products">No monitors found matching your criteria.</div>';
+    }
+    ?>
+</div>
 </body>
 </html>
