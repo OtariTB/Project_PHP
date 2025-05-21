@@ -11,6 +11,7 @@ include_once './config/connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitor Store</title>
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -20,12 +21,12 @@ include_once './config/connect.php';
         <div class="container header-container">
             <a href="./index.php" class="logo">MonitorStore</a>
             <div class="search-bar">
-                <input type="text" placeholder="Search monitors... 🔍">
+                <input type="text" placeholder="Search monitors... ">
             </div>
             <div class="nav-icons">
-                <div class="nav-icon">👤</div>
-                <div class="nav-icon">❤️</div>
-                <div class="nav-icon">🛒</div>
+                <div class="nav-icon"><i class="fa-solid fa-circle-user"></i></div>
+                <div class="nav-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></div>
             </div>
         </div>
         <nav class="main-nav">
@@ -121,6 +122,28 @@ include_once './config/connect.php';
                     ';
                 }
                 ?>
+            </div>
+        </div>
+    </section>
+        <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3 class="feature-title">Free Shipping</h3>
+                    <p>Free shipping on all orders over $100. Fast delivery to your doorstep.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-repeat"></i></div>
+                    <h3 class="feature-title">30-Day Returns</h3>
+                    <p>Not satisfied? Return within 30 days for a full refund.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="feature-title">Secure Payment</h3>
+                    <p>Your payment information is processed securely.</p>
+                </div>
             </div>
         </div>
     </section>            

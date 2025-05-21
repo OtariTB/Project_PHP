@@ -48,7 +48,7 @@ header {
 }
 
 .search-bar {
-  flex-grow: 1;
+  flex-grow: 2;
   max-width: 500px;
   margin: 0 20px;
 }
@@ -69,6 +69,12 @@ header {
   color: var(--dark-gray);
   font-size: 20px;
   cursor: pointer;
+  transition: 200ms;
+}
+
+.nav-icon:hover{
+  color: var(--primary-color);
+  transform: scale(1.4);
 }
 
 .main-nav {
@@ -96,7 +102,6 @@ header {
 .nav-links li a:hover {
   background-color: var(--secondary-color);
 }
-
 
 .login-container {
   margin: 0 auto;
@@ -131,7 +136,7 @@ header {
 }
 
 .form-group input {
-  width: 93%;
+  width: 100%;
   padding: 0.75rem;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -346,4 +351,72 @@ header {
 
 .product-btn:hover {
   background-color: var(--secondary-color);
+}
+
+.features {
+  padding: 60px 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 9px;
+  transition: 400ms;
+}
+
+.feature-card:hover{
+  transform: translateY(5px), scale(1.05);
+}
+
+.feature-icon {
+  font-size: 40px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.feature-title {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .search-bar {
+    max-width: 100%;
+    margin: 15px 0;
+  }
+  
+  .nav-container {
+    display: block;
+    flex-direction: column;
+    max-height: 110px;
+    overflow-y: auto;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+  }
+  
+  .filter-options {
+    grid-template-columns: 1fr;
+  }
 }
