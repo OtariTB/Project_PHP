@@ -19,7 +19,7 @@ include_once '../config/connect.php';
 <body>
     <header>
         <div class="container header-container">
-            <a href="./index.php" class="logo">MonitorStore</a>
+            <a href="../index.php" class="logo">MonitorStore</a>
             <div class="search-bar">
                 <input type="text" placeholder="Search monitors... ">
             </div>
@@ -37,9 +37,9 @@ include_once '../config/connect.php';
                     <li><a href="">Ultrawide</a></li>
                     <li><a href="">Budget</a></li>
                     <li><a href="">Deals</a></li>
-                    <li><a href="./includes/products.php">Products</a></li>
-                    <li><a href="./includes/login.php"> Log In</a></li>
-                    <li><a href="./includes/register.php">Register</a></li>
+                    <li><a href="./products.php">Products</a></li>
+                    <li><a href="./login.php"> Log In</a></li>
+                    <li><a href="./register.php">Register</a></li>
                 </ul>
             </div>
         </nav>

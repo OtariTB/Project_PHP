@@ -153,30 +153,30 @@ include_once './config/connect.php';
                 <div class="footer-links">
                     <h3>Shop</h3>
                     <ul>
-                        <li><a href="gaming.php">Gaming Monitors</a></li>
-                        <li><a href="professional.php">Professional Monitors</a></li>
-                        <li><a href="ultrawide.php">Ultrawide Monitors</a></li>
-                        <li><a href="budget.php">Budget Monitors</a></li>
-                        <li><a href="deals.php">Special Deals</a></li>
+                        <li><a href="">Gaming Monitors</a></li>
+                        <li><a href="">Professional Monitors</a></li>
+                        <li><a href="">Ultrawide Monitors</a></li>
+                        <li><a href="">Budget Monitors</a></li>
+                        <li><a href="">Special Deals</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h3>Support</h3>
                     <ul>
-                        <li><a href="contact.php">Contact Us</a></li>
-                        <li><a href="faq.php">FAQs</a></li>
-                        <li><a href="shipping.php">Shipping Policy</a></li>
-                        <li><a href="returns.php">Returns & Exchanges</a></li>
-                        <li><a href="warranty.php">Warranty Information</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">FAQs</a></li>
+                        <li><a href="">Shipping Policy</a></li>
+                        <li><a href="">Returns & Exchanges</a></li>
+                        <li><a href="">Warranty Information</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h3>About Us</h3>
                     <ul>
-                        <li><a href="about.php">Our Story</a></li>
-                        <li><a href="blog.php">Blog</a></li>
-                        <li><a href="careers.php">Careers</a></li>
-                        <li><a href="reviews.php">Customer Reviews</a></li>
+                        <li><a href="">Our Story</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Careers</a></li>
+                        <li><a href="">Customer Reviews</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
