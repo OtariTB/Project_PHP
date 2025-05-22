@@ -25,7 +25,7 @@ include_once '../config/connect.php';
             </div>
             <div class="nav-icons">
                 <div class="nav-icon"><i class="fa-solid fa-circle-user"></i></div>
-                <div class="nav-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="nav-icon"><a href="./login.php"><i class="fa-solid fa-right-to-bracket"></i></a></div>
                 <div class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></div>
             </div>
         </div>
@@ -37,8 +37,6 @@ include_once '../config/connect.php';
                     <li><a href="./products.php?category=Ultrawide">Ultrawide</a></li>
                     <li><a href="./products.php?category=Budget">Budget</a></li>
                     <li><a href="./products.php">Products</a></li>
-                    <li><a href="./login.php"> Log In</a></li>
-                    <li><a href="./register.php">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -159,10 +157,11 @@ include_once '../config/connect.php';
     ?>
     
     <div class="product-card">
+        <a href="./single_page.php?id=<?php echo $product['product_id']; ?>" style="text-decoration: none;">
         <img src=".<?php echo htmlspecialchars($product['image']); ?>" 
              alt="<?php echo htmlspecialchars($product['brandName']); ?>" 
              class="product-img">
-        
+        </a>
         <div class="product-info">
             <div class="product-category"><?php echo htmlspecialchars($product['categoryName']); ?></div>
             <h3 class="product-name"><?php echo htmlspecialchars($product['brandName']) . " " . htmlspecialchars($product['model']); ?></h3>

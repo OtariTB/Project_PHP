@@ -1,6 +1,6 @@
 <?php
 include_once './config/connect.php';
-
+session_start();
 ?>
 
 
@@ -25,7 +25,7 @@ include_once './config/connect.php';
             </div>
             <div class="nav-icons">
                 <div class="nav-icon"><i class="fa-solid fa-circle-user"></i></div>
-                <div class="nav-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="nav-icon"><a href="./includes/login.php"><i class="fa-solid fa-right-to-bracket"></i></a></div>
                 <div class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></div>
             </div>
         </div>
@@ -37,8 +37,6 @@ include_once './config/connect.php';
                     <li><a href="includes/products.php?category=Ultrawide">Ultrawide</a></li>
                     <li><a href="includes/products.php?category=Budget">Budget</a></li>
                     <li><a href="./includes/products.php">Products</a></li>
-                    <li><a href="./includes/login.php"> Log In</a></li>
-                    <li><a href="./includes/register.php">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -115,7 +113,7 @@ include_once './config/connect.php';
                             <h3 class="product-title">'.$product['brandName']. " " ,$product['model'].'</h3>
                             <p class="product-specs">'. $product['resolution_type'].", ",$product['screen_size'].", ",$product['refresh_rate']."Hz, ",$product['panel'].'</p>
                             <div class="product-price">$'.$product['price'].'</div>
-                            <a href="product.php?id='.$product['product_id'].'" class="product-btn"><i class="fa-solid fa-magnifying-glass"></i></a>
+                            <a href="./includes/single_page.php?id='.$product['product_id'].'" class="product-btn"><i class="fa-solid fa-magnifying-glass"></i></a>
                             <a href="cart.php?add='.$product['product_id'].'" class="product-btn" style = "background-color : var(--light-green);"><i class="fa-solid fa-cart-plus"></i></a>
                         </div>
                     </div>

@@ -106,6 +106,7 @@ header {
 
 .login-container {
   margin: 0 auto;
+  margin-top: 10px;
   background: var(--accent-color);
   padding: 2rem;
   border-radius: 8px;
@@ -662,4 +663,132 @@ footer {
 .out-of-stock {
   background-color: rgba(231, 76, 60, 0.2);
   color: #c0392b;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.product-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.product-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+}
+
+.product-image {
+  text-align: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-info h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.product-price {
+  font-size: 2em;
+  color: #e74c3c;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.buy-button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.specifications {
+  padding: 0 40px 40px;
+}
+
+.specs-title {
+  font-size: 2em;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.spec-category {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+.spec-category h3 {
+  color: #495057;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.spec-item:last-child {
+  border-bottom: none;
+}
+
+.spec-label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.spec-value {
+  color: #6c757d;
+  text-align: right;
 }
