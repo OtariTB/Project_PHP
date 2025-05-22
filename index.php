@@ -1,6 +1,12 @@
 <?php
 include_once './config/connect.php';
 session_start();
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: ./index.php");
+    exit;
+}
+
 ?>
 
 
@@ -27,7 +33,9 @@ session_start();
                 <div class="nav-icon"><i class="fa-solid fa-circle-user"></i></div>
                 <div class="nav-icon"><a href="./includes/login.php"><i class="fa-solid fa-right-to-bracket"></i></a></div>
                 <div class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <a href="?logout=1" class="logout-btn">Logout</a>
             </div>
+
         </div>
         <nav class="main-nav">
             <div class="container nav-container">
@@ -37,6 +45,11 @@ session_start();
                     <li><a href="includes/products.php?category=Ultrawide">Ultrawide</a></li>
                     <li><a href="includes/products.php?category=Budget">Budget</a></li>
                     <li><a href="./includes/products.php">Products</a></li>
+                    <?php
+                    if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == '1') {
+                        echo "<li><a href='./admin/index.php'>Admin Panel</a></li>";
+                    }
+                    ?>
                 </ul>
             </div>
         </nav>

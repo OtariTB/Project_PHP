@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once '../config/connect.php';
 
 $error = '';
@@ -19,8 +20,11 @@ if (isset($_POST['submit'])) {
         
         if ($result->num_rows == 1) {
             $user = $result->fetch_assoc();
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['name'];
+            $_SESSION['user_type'] = $user['isadmin'];
             echo "<h2 style = 'margin : 0 auto;'>Welcome, " . htmlspecialchars($user['name']) . "!</h2>";
-             header("Location: ../index.php");
+            header("Location: ../index.php");
         } else {
             echo "<span style='color : red; font-size: 1rem;'> Incorrect Username or Password</span>";
         }
