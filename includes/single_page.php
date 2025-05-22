@@ -7,7 +7,6 @@ if ($product_id === 0) {
     die("Invalid product ID");
 }
 
-// Fetch product data
 $sql = "SELECT * FROM PRODUCTS
             INNER JOIN resolutions on products.resolution_id = resolutions.id
             INNER JOIN brand on products.brand_id = brand.brand_id

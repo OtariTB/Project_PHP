@@ -11,14 +11,12 @@ $table = $_GET['table'] ?? null;
 $message = '';
 $edit_data = null;
 
-// Handle logout
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: ../index.php");
     exit;
 }
 
-// Dashboard counts
 $product_count = 0;
 $user_count = 0;
 $brand_count = 0;
@@ -73,9 +71,10 @@ if ($action === 'dashboard') {
                 $name = $_POST['name'] ?? '';
                 $email = $_POST['email'] ?? '';
                 $password = $_POST['password'] ?? '';
+                $isadmin = $_POST['isadmin'] ?? 0;
 
-                $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-                $stmt->bind_param("sss", $name, $email, $password);
+                $stmt = $conn->prepare("INSERT INTO users (name, email, password, isadmin) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param("sssi", $name, $email, $password, $isadmin);
                 if ($stmt->execute()) {
                     $message = "User added successfully.";
                 } else {
@@ -146,13 +145,14 @@ if ($action === 'dashboard') {
                 $name = $_POST['name'] ?? '';
                 $email = $_POST['email'] ?? '';
                 $password = $_POST['password'] ?? '';
+                $isadmin = $_POST['isadmin'] ?? 0;
 
                 if (!empty($password)) {
-                    $stmt = $conn->prepare("UPDATE users SET name=?, email=?, password=? WHERE id=?");
-                    $stmt->bind_param("sssi", $name, $email, $password, $id);
+                    $stmt = $conn->prepare("UPDATE users SET name=?, email=?, password=?, isadmin=? WHERE id=?");
+                    $stmt->bind_param("sssii", $name, $email, $password, $isadmin, $id);
                 } else {
-                    $stmt = $conn->prepare("UPDATE users SET name=?, email=? WHERE id=?");
-                    $stmt->bind_param("ssi", $name, $email, $id);
+                    $stmt = $conn->prepare("UPDATE users SET name=?, email=?, isadmin=? WHERE id=?");
+                    $stmt->bind_param("siii", $name, $email, $isadmin, $id);
                 }
                 if ($stmt->execute()) {
                     $message = "User updated successfully.";
@@ -247,7 +247,6 @@ if ($action === 'dashboard') {
             }
         }
 
-        // Handle edit
         if (isset($_GET['action']) && $_GET['action'] === 'edit' && isset($_GET['id'])) {
             $id = $_GET['id'];
             if ($table === 'products') {
@@ -288,7 +287,6 @@ if ($action === 'dashboard') {
             }
         }
 
-        // Fetch records
         $records = [];
         if ($table === 'products') {
             $result = mysqli_query($conn, "SELECT * FROM products");
@@ -436,6 +434,13 @@ if ($action === 'dashboard') {
                                     <label>Password <?= $edit_data ? '(leave empty to keep current)' : '' ?></label>
                                     <input type="password" name="password" <?= !$edit_data ? 'required' : '' ?>>
                                 </div>
+                                <div class="form-group">
+                                    <label>Is Admin</label>
+                                    <select name="isadmin" required>
+                                        <option value="1" <?= (isset($edit_data['isadmin']) && $edit_data['isadmin'] == 1) ? 'selected' : '' ?>>Yes</option>
+                                        <option value="0" <?= (isset($edit_data['isadmin']) && $edit_data['isadmin'] == 0) ? 'selected' : '' ?>>No</option>
+                                    </select>
+                                </div>
                             <?php elseif ($table == 'resolutions'): ?>
                                 <div class="form-group">
                                     <label>Resolution Type</label>
@@ -488,6 +493,7 @@ if ($action === 'dashboard') {
                                         <th>Username</th>
                                         <th>Email</th>
                                         <th>Password</th>
+                                        <th>Is Admin</th>
                                     <?php elseif ($table == 'resolutions'): ?>
                                         <th>Resolution_Type</th>
                                     <?php elseif ($table == 'category'): ?>
@@ -521,6 +527,7 @@ if ($action === 'dashboard') {
                                         <td><?= htmlspecialchars($record['name']) ?></td>
                                         <td><?= htmlspecialchars($record['email']) ?></td>
                                         <td><?= $record['password'] ?? 'N/A' ?></td>
+                                        <td><?= $record['isadmin'] == 1 ? 'Yes' : 'No' ?></td>
                                     <?php elseif ($table == 'resolutions'): ?>
                                         <td><?= $record['id'] ?></td>
                                         <td><?= htmlspecialchars($record['resolution_type']) ?></td>
