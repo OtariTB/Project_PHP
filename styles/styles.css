@@ -543,6 +543,7 @@ footer {
   border-radius: 0 4px 4px 0;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  color: white;
 }
 
 .products-grid {
@@ -578,7 +579,7 @@ footer {
 }
 
 .product-category {
-    color: var(--dark-gray);
+    color: #a1a1a1;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
@@ -599,43 +600,66 @@ footer {
 .spec-item {
     display: flex;
     margin-bottom: 0.3rem;
-        }
+}
 
 .spec-icon {
-    color: var(--primary-color);
-    margin-right: 0.5rem;
+  color: var(--primary-color);
+  margin-right: 0.5rem;
 }
 
 .product-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .price {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: var(--dark-gray);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--dark-gray);
 }
 
 .price .discount {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-    text-decoration: line-through;
-    margin-right: 0.5rem;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  text-decoration: line-through;
+  margin-right: 0.5rem;
 }
 
 .add-to-cart {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .add-to-cart:hover {
-    background-color: #2980b9;
+  background-color: #2980b9;
+}
+
+.stock-status {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.in-stock {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #27ae60;
+}
+
+.low-stock {
+  background-color: rgba(241, 196, 15, 0.2);
+  color: #f39c12;
+}
+
+.out-of-stock {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #c0392b;
 }

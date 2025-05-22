@@ -32,10 +32,10 @@ include_once '../config/connect.php';
         <nav class="main-nav">
             <div class="container nav-container">
                 <ul class="nav-links">
-                    <li><a href="">Gaming</a></li>
-                    <li><a href="">Professional</a></li>
-                    <li><a href="">Ultrawide</a></li>
-                    <li><a href="">Budget</a></li>
+                    <li><a href="./products.php?category=Gaming">Gaming</a></li>
+                    <li><a href="./products.php?category=Professional">Professional</a></li>
+                    <li><a href="./products.php?category=Ultrawide">Ultrawide</a></li>
+                    <li><a href="./products.php?category=Budget">Budget</a></li>
                     <li><a href="./products.php">Products</a></li>
                     <li><a href="./login.php"> Log In</a></li>
                     <li><a href="./register.php">Register</a></li>
@@ -208,5 +208,54 @@ include_once '../config/connect.php';
     }
     ?>
 </div>
+
+</main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="./products.php?category=Gaming">Gaming Monitors</a></li>
+                        <li><a href="./products.php?category=Professional">Professional Monitors</a></li>
+                        <li><a href="./products.php?category=Ultrawide">Ultrawide Monitors</a></li>
+                        <li><a href="./products.php?category=Budget">Budget Monitors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">FAQs</a></li>
+                        <li><a href="">Shipping Policy</a></li>
+                        <li><a href="">Returns & Exchanges</a></li>
+                        <li><a href="">Warranty Information</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="">Our Story</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Careers</a></li>
+                        <li><a href="">Customer Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for news and updates.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <?php echo date('Y'); ?> MonitorStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
